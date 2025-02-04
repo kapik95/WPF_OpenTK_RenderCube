@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace WPF_OpenTK_RenderCube
+namespace WPF_OpenTK_RenderCube.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
@@ -17,14 +17,14 @@ namespace WPF_OpenTK_RenderCube
         private bool _isDrawing;
         private readonly string _defaultItem = "Только поверхности";
 
-        public ICommand Start {  get; }
+        public ICommand Start { get; }
         public ICommand Stop { get; }
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public ObservableCollection<string> Modes { get; } = new()
         {
-            "Грани", 
-            "Грани и поверхности", 
+            "Грани",
+            "Грани и поверхности",
             "Только поверхности"
         };
 
@@ -46,17 +46,17 @@ namespace WPF_OpenTK_RenderCube
             get => _selectedMode;
             set
             {
-                if (_selectedMode != value) 
+                if (_selectedMode != value)
                 {
                     _selectedMode = value;
                 }
             }
         }
 
-        public MainViewModel() 
+        public MainViewModel()
         {
-            Start = new RelayCommand(DrawingStart);
-            Stop = new RelayCommand(DrawingEnd);
+            Start = new Commands.RelayCommand(DrawingStart);
+            Stop = new Commands.RelayCommand(DrawingEnd);
             SelectedMode = _defaultItem;
         }
 

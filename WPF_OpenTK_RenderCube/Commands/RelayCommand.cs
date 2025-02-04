@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace WPF_OpenTK_RenderCube
+namespace WPF_OpenTK_RenderCube.Commands
 {
     internal class RelayCommand : ICommand
     {
